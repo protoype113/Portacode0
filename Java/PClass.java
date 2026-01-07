@@ -1,12 +1,13 @@
 public class PClass {
 
-    private char name;
+    private String name;
     private int age;
     private boolean legal;
+    private String[] names = {"Alice", "Benjamin", "Chloe", "Daniel", "Elena", "Franklin", "Grace", "Henry", "Isabella", "Jack", "Katherine", "Liam", "Mia", "Noah", "Olivia", "Penelope", "Quinn", "Ryan", "Sophia", "Thomas", "Uma", "Victor", "Willow", "Xavier", "Yasmine", "Zachary"};
 
     // Constructor
     public PClass() {
-        this.name = (char) ((int)(Math.random()*26));
+        this.name = names[((int)(Math.random()*26))];
         this.age = (int)(Math.random()*100);
         this.legal = (this.age >= 21);
     }
