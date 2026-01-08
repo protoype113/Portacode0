@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 public class Login {
 
@@ -27,6 +29,12 @@ public class Login {
                     System.out.println("Username confirmed");
                     try {
                         file.createNewFile();
+                        FileWriter fw = new FileWriter(file, true);
+                        PrintWriter write = new PrintWriter(fw);
+                        write.println("Name: " + username);
+                        write.println();
+                        write.println("Entities:");
+                        write.close();
                     } catch (IOException e) {
 
                     }
