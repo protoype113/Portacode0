@@ -1,17 +1,20 @@
 import java.util.Scanner;
 
 public class Main {
+    public static Scanner scan = new Scanner(System.in);
 
     public static void main (String[] args) {
-        Scanner scan = new Scanner(System.in);
         clearConsole();
         System.out.println();
         System.out.println("Welcome to ERN, the Entity Routing Network.");
-        System.out.println("As our newest agent, you will be tasked with locating and containing entities of various danger levels.");
+        System.out.println("As our newest agent, you will be tasked with locating and containing ");
+        System.out.println("entities of various danger levels.");
+        hold();
         while (true) {
             System.out.println("Options");
-            System.out.println("1. Locate Entities");
-            System.out.println("2. ");
+            System.out.println("1. Locate New Entities");
+            System.out.println("2. Interact With Contained Entities");
+            System.out.println("3. Agency Entity Manual");
             String a = scan.next();
             if (a.equals("c")) {
                 break;
@@ -31,5 +34,10 @@ public class Main {
             // Handle exceptions (e.g., if the terminal doesn't support ANSI codes)
             e.printStackTrace();
         }
+    }
+
+    public static void hold() {
+        System.out.println("Press \"ENTER\" to continue...");
+        scan.nextLine();
     }
 }
