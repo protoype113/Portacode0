@@ -4,23 +4,29 @@ public class Main {
     public static Scanner scan = new Scanner(System.in);
 
     public static void main (String[] args) {
-        clearConsole();
-        System.out.println();
-        System.out.println("Welcome to ERN, the Entity Routing Network.");
-        System.out.println("As our newest agent, you will be tasked with locating and containing ");
-        System.out.println("entities of various danger levels.");
-        hold();
-        while (true) {
-            System.out.println("Options");
-            System.out.println("1. Locate New Entities");
-            System.out.println("2. Interact With Contained Entities");
-            System.out.println("3. Agency Entity Manual");
-            String a = scan.next();
-            if (a.equals("c")) {
-                break;
-            }
+        Entity a = new Entity("Pikachu", "001");
+        Entity b = new Entity("Gyarados", "002");
+        Entity[] team = {a, b};
+        User man = new User("Gary", team);
+        System.out.println(man.getName());
+        man.listContained();
 
-        }
+        // clearConsole();
+        // System.out.println();
+        // System.out.println("Welcome to ERN, the Entity Routing Network.");
+        // System.out.println("As our newest agent, you will be tasked with locating and containing ");
+        // System.out.println("entities of various danger levels.");
+        // hold();
+        // while (true) {
+        //     System.out.println("Options");
+        //     System.out.println("1. Locate New Entities");
+        //     System.out.println("2. Interact With Contained Entities");
+        //     System.out.println("3. Agency Entity Manual");
+        //     String a = scan.next();
+        //     if (a.equals("c")) {
+        //         break;
+        //     }
+        // }
     }
 
     public static void clearConsole() {
