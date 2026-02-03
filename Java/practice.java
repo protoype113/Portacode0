@@ -1,10 +1,8 @@
 public class practice {
 
     public static void main(String[] args) {
-        System.out.println("Hello");
-        PClass p = new PClass();
-        p.getName();
-        p.getAge();
-        p.getLegal();
+        for (int i = 0; i < 26; i++) {
+            System.out.println(i + " : " + char(19+i) + char(7+i) + char(4+i));
+        }
     }
 }
