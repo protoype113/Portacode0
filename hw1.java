@@ -20,58 +20,93 @@ public class hw1 {
             System.out.println(printed);    
     }
     
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter filename: ");
-        String fileName = scan.next();
-        File file = new File(fileName);
-        Scanner fileReader = new Scanner(file);
-        Map<String, Integer> map = new HashMap<>();
+    // overarching function to handle calculations
+    public static Map<String, Integer> main2(Map<String, Integer> map, Scanner fileReader) {
         String previous = "";
         String next = "";
-        while (fileReader.hasNextLine()) {
+        while (fileReader.hasNext()) {
             previous = next;
             next = fileReader.next();
             // For loop
-
-            // Set value
-            if (next.matches("=")) {
+            if (next.equals("FOR")) {
+                String loop = "";
+                int repeat = Integer.parseInt(fileReader.next());
                 next = fileReader.next();
-                try {
-                    int check = Integer.parseInt(next);
-                    map.put(previous, check);
-                } catch (Exception e) {
-                    map.put(previous, map.get(next));
+                while (!next.equals("ENDFOR")) {
+                    loop = loop + next + " ";
+                    next = fileReader.next();
+                    
+                }
+                System.out.println(loop);
+                Scanner forLoop = new Scanner(loop);
+                for (int i = 0; i < repeat; i++) {
+                    map = main2(map, forLoop);
                 }
             }
-            // Change value 
+            
+            // Set or change value 
+            else if (next.contains("=")) {
+                for (Map.Entry<String, Integer> entry : map.entrySet()) {
+
+                }
+                String op = next;
+                next = fileReader.next();
+                switch(op.charAt(0)) {
+                    case '=':
+                        try {
+                            int check = Integer.parseInt(next);
+                            map.put(previous, check);
+                        } catch (Exception e) {
+                            map.put(previous, map.get(next));
+                        }
+                    case '*':
+                        try {
+                            int check = Integer.parseInt(next);
+                            map.put(previous, map.get(previous) * check);
+                        } catch (Exception e) {
+                            map.put(previous, map.get(previous) * map.get(next));
+                        }
+                        break;
+                    case '+':
+                        try {
+                            int check = Integer.parseInt(next);
+                            map.put(previous, map.get(previous) + check);
+                        } catch (Exception e) {
+                            map.put(previous, map.get(previous) + map.get(next));
+                        }
+                        break;
+                    case '-':
+                        try {
+                            int check = Integer.parseInt(next);
+                            map.put(previous, map.get(previous) - check);
+                        } catch (Exception e) {
+                            map.put(previous, map.get(previous) - map.get(next));
+                        }
+                        break;
+                }
+            }
             // print value
             else if (next.equals("PRINT")) {
                 printing(fileReader, next, map);
             }
             // semi-colon
+            else if (next.equals(";") && fileReader.hasNext() && !fileReader.hasNextLine()) {
+                next = fileReader.next();
+            }
              
 
-            
-
-            // try {
-            //     Double.parseDouble(next);
-            // } catch(exception e) {
-            //     if (next.contains("=")) {
-            //         if (next.contains("*")) {
-
-            //         } else if (next.contains("/")) {
-
-            //         } else if (next.contains("+")) {
-
-            //         } else if (next.contains("-")) {}
-
-            //     } else {
-
-            //     }
-            // }
-
         }
+        return map;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Map<String, Integer> map = new HashMap<>();
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter filename: ");
+        String fileName = scan.next();
+        File file = new File(fileName);
+        Scanner fileReader = new Scanner(file);
+        map = new HashMap<>(main2(map, fileReader));
         scan.close();
     }
 }
