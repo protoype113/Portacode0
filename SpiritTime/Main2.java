@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main2 {
     public static Scanner scan = new Scanner(System.in);
     public static Entity[] dex = new Entity[30];
     

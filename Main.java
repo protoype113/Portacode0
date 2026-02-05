@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
-public class hw1 {
+public class Main {
 
     // function for PRINT
     public static void printing(Scanner fileReader, String next, Map<String, Integer> map) {
@@ -32,23 +32,29 @@ public class hw1 {
                 String loop = "";
                 int repeat = Integer.parseInt(fileReader.next());
                 next = fileReader.next();
-                while (!next.equals("ENDFOR")) {
+                int nested = 0;
+                while (!next.equals("ENDFOR") || nested >= 1) {
+                    if (next.equals("FOR")) {
+                        nested += 1;
+                    }
+                    if (next.equals("ENDFOR")) {
+                        nested -= 1;
+                    }
                     loop = loop + next + " ";
                     next = fileReader.next();
-                    
                 }
-                System.out.println(loop);
-                Scanner forLoop = new Scanner(loop);
-                for (int i = 0; i < repeat; i++) {
-                    map = main2(map, forLoop);
+                loop = loop.replace(';', ' ');
+                while(repeat > 0) {
+                    System.out.println(repeat);
+                    Scanner forLoop = new Scanner(loop);
+                    map = new HashMap<>(main2(map, forLoop));
+                    repeat --;
                 }
             }
             
             // Set or change value 
             else if (next.contains("=")) {
-                for (Map.Entry<String, Integer> entry : map.entrySet()) {
-
-                }
+                System.out.println("Before: " + previous + " : " + map.get(previous));
                 String op = next;
                 next = fileReader.next();
                 switch(op.charAt(0)) {
@@ -84,14 +90,11 @@ public class hw1 {
                         }
                         break;
                 }
+                System.out.println("After: " + previous + " : " + map.get(previous));
             }
             // print value
             else if (next.equals("PRINT")) {
                 printing(fileReader, next, map);
-            }
-            // semi-colon
-            else if (next.equals(";") && fileReader.hasNext() && !fileReader.hasNextLine()) {
-                next = fileReader.next();
             }
              
 
@@ -107,6 +110,7 @@ public class hw1 {
         File file = new File(fileName);
         Scanner fileReader = new Scanner(file);
         map = new HashMap<>(main2(map, fileReader));
-        scan.close();
+        scan.close(); 
+        fileReader.close();
     }
 }
