@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 public class Main {
 
@@ -45,7 +45,6 @@ public class Main {
                 }
                 loop = loop.replace(';', ' ');
                 while(repeat > 0) {
-                    System.out.println(repeat);
                     Scanner forLoop = new Scanner(loop);
                     map = new HashMap<>(main2(map, forLoop));
                     repeat --;
@@ -54,7 +53,6 @@ public class Main {
             
             // Set or change value 
             else if (next.contains("=")) {
-                System.out.println("Before: " + previous + " : " + map.get(previous));
                 String op = next;
                 next = fileReader.next();
                 switch(op.charAt(0)) {
@@ -65,6 +63,7 @@ public class Main {
                         } catch (Exception e) {
                             map.put(previous, map.get(next));
                         }
+                        break;
                     case '*':
                         try {
                             int check = Integer.parseInt(next);
@@ -90,7 +89,6 @@ public class Main {
                         }
                         break;
                 }
-                System.out.println("After: " + previous + " : " + map.get(previous));
             }
             // print value
             else if (next.equals("PRINT")) {
@@ -103,14 +101,17 @@ public class Main {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        Map<String, Integer> map = new HashMap<>();
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter filename: ");
-        String fileName = scan.next();
-        File file = new File(fileName);
-        Scanner fileReader = new Scanner(file);
-        map = new HashMap<>(main2(map, fileReader));
-        scan.close(); 
-        fileReader.close();
+        try {
+            Map<String, Integer> map = new HashMap<>();
+            String fileName = args[0];
+            File file = new File(fileName);
+            Scanner fileReader = new Scanner(file);
+            map = new HashMap<>(main2(map, fileReader));
+            fileReader.close();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: No filename given");
+        } catch (FileNotFoundException f) {
+            System.out.println("Error: Filename not found");
+        }
     }
 }
