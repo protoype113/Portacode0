@@ -1,3 +1,0 @@
-A = 1 ;
-FOR 5000000 A += 10 ; FOR 5 FOR 5 A += 1 ; ENDFOR ENDFOR A += 1 ; ENDFOR
-PRINT A ;

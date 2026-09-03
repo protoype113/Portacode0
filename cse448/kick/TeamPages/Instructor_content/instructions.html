@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using GitLab as a Team</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #6a0572;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #6a0572;
+        }
+    </style>
+</head>
+<body >
+
+<div  class="container w-65" style="margin:24px; font-size: 16px;">
+    <h1>Using GitLab as a Team</h1>
+    <div class="container">
+        <p>Here is some guidance for using GitLab in senior capstone.</p>
+    </div>
+    
+    <ol>
+        <li>
+            <strong>Clone:</strong> Each team member will clone the project to your local environment.<br>In VS Code, close all folders.  Using the option to clone a project, clone this project.
+        </li>
+        <li>
+            <strong>One team member should:</strong> [1] create the team_page.html and [2] create the team label.  Use the scoped label 'TEAM::your_team_name' to keep it clean.  
+        </li>
+        <li>
+            <strong>Create your issue:</strong> The GitLab issue is where you define the work or value you will be delivering.  Be clear and consise in generating the issue. Create the issue from the issue list (figure 1) or from the issue board (figure 2).   Add at least one label for your team. 
+            <figure><img style="border: 5px groove darkorange;" src="newIssue.PNG"  alt="Create issue button."/><figcaption>Figure 1: Create issue from the issue list.</figcaption></figure><br />
+            <figure><img style="border: 5px groove darkorange;" src="createNewIssue_IssueBoard.PNG" alt="Create issue + (plus) button" /><figcaption>Figure 2: Create issue on the issue board.</figcaption></figure>
+        </li>
+        <li>
+            <strong>Create the Merge Request (MR):</strong> After the issue has been created, defined, assigned to a team member, and labeled create the branch and merge request.  In the issue, click 'Create merge request'. <img src="createMR.PNG" style="width: 75%; height: auto; margin: 20px;" alt="GitLab button"> 
+        </li>
+        <li style="list-style-type: none"><hr />Navigate to your local IDE or GitHub Desktop.<hr /></li>
+        <li value="4">
+            <strong>Refresh the Branch list:</strong> In VS Code, do git fetch to refresh the list of remote repositories. (figure 3) 
+            <figure><img style="border: 5px groove darkorange; max-width: 95%;" src="gitFetch.PNG" alt="Terminal command"/><figcaption>Figure 3: In the terminal, execute the command line fetch.</figcaption></figure>
+        </li>
+        <li>
+            <strong>Pull/checkout the new branch:</strong> In the list of remote branches, find your new branch and click. This will make a local copy and check it out. (figure 4)
+            <figure><img style="border: 5px groove darkorange;  max-width: 95%;" src="selectNewBranch.PNG" alt="Scroll to remote branch." /><figcaption>Figure 4: Find and select the new remote branch.</figcaption></figure>
+        </li>
+        <li style="list-style-type: none"><hr />Do some stuff.<hr /></li>
+        <li value="6">
+            <strong>Disaster Recovery:</strong> Commit your work regularly.  This is local ONLY.  Push your work to the remote repo regularly.
+            <figure><img style="border: 5px groove darkorange;" src="commit.PNG" alt="VS Code Source Control commit" /><figcaption>Figure 5: Commit your work.</figcaption></figure>
+            <figure><img style="border: 5px groove darkorange;" src="commit.PNG" alt="VS Code Source Control sync changes" /><figcaption>Figure 6: Push to the remote repo.</figcaption></figure>
+        </li>
+        <li>
+            <strong>Housekeeping:</strong> <em>Pending</em>
+        </li>
+    </ol>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

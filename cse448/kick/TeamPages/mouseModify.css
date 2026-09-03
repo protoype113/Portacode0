@@ -1,0 +1,7 @@
+#resetVotes:hover {
+    cursor:help
+}
+
+.container:hover {
+    cursor:crosshair
+}

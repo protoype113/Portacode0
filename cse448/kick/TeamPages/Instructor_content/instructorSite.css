@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 14px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  color: #0066cc;
+}
+
+#projects button {
+  margin: 5px;
+  padding: 10px 15px;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#projects button:hover {
+  background: #004c99;
+}
+
+
+#results {
+  margin-top: 15px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.result-bar {
+  background: #0066cc;
+  color: white;
+  padding: 3px;
+  margin: 2px 0;
+  border-radius: 3px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0;
+}
+.container {
+  /* max-width: 600px; */
+  margin: auto;
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  box-shadow: 0 4px 8px 0;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0;
+}
